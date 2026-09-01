@@ -19,7 +19,13 @@ app.get("/about",(req,res)=>{
 });
 
 
+app.get("/login",(req,res)=>{
+    res.send(u);
+});
 
+app.get("/products",(req,res)=>{
+    res.send(u);
+});
 
 
 app.listen(3000, () => {

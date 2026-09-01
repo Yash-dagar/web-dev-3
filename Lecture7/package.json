@@ -1,5 +1,5 @@
 {
-  "name": "lecture-11",
+  "name": "lecture7",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -10,10 +10,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
-  "dependencies": {
-    "express": "^5.2.1",
-    "nodemon": "^3.1.14"
-  },
-  "devDependencies": {}
+  "type": "commonjs"
 }
