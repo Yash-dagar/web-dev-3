@@ -1,26 +1,10 @@
-const express=require("express");
-const app=express()
-const PORT = 3000;
+const employees=require("../data/employeeData.js")
 
-//middleware
-app.use(express.json());
-
-
-const employees=[
-    {empId:1, name:"Prashant", salary:500000, department:"IT"},
-    {empId:2, name:"Shree", salary:200000, department:"HR"},
-    {empId:3, name:"Rahul", salary:400000, department:"Finance"},
-    {empId:4, name:"Harsh", salary:100000, department:"IT"},
-    {empId:5, name:"Yash", salary:300000, department:"Sales"},
-]
-
-//Read Operation
-app.get("/employees", (req,res)=>{
+const getEmployees=(req,res)=>{
     res.json(employees)
-})
+}
 
-//employee get by their id
-app.get("/employees/:id", (req,res)=>{
+const getEmployeeById=(req,res)=>{
     const id=req.params.id;
     const employee=employees.find((employee)=>employee.empId==Number(id));
     if(!employee){
@@ -31,18 +15,21 @@ app.get("/employees/:id", (req,res)=>{
 
     }
     res.json({success:true, employee});
-})
+}
 
-//create operation
-app.post("/employees",(req,res)=>{
+const addEmployee=(req,res)=>{
     const employee=req.body;
     employees.push({empId:employees.length+1,...employee});
     res.json({success:true,employee})
-})
+}
 
+const createEmployee=(req,res)=>{
+    const employee=req.body;
+    employees.push({empId:employees.length+1,...employee});
+    res.json({success:true,employee})
+}
 
-//update operation
-app.put("/employees/:id",(req,res)=>{
+const updateEmployee=(req,res)=>{
     const id=req.params.id;
     const employee=req.body;
     const result=employees.find((employee)=>employee.empId==Number(id));
@@ -57,9 +44,9 @@ app.put("/employees/:id",(req,res)=>{
     result.salary=employee.salary;
     result.department=employee.department;
     res.json({success:true, employee});
-})
+}
 
-app.delete("/employees/:id",(req,res)=>{
+const deleteEmployee=(req,res)=>{
     const id=req.params.id;
     const result=employees.find((employee)=>employee.empId==Number(id));
     if(!result){
@@ -70,10 +57,13 @@ app.delete("/employees/:id",(req,res)=>{
     }
     employees.splice(employees.indexOf(result), 1);
     res.json({success:true, message:"Employee deleted successfully"});
-})
+}
 
-app.listen(PORT, ()=>{
-    console.log("server is running on port 3000");
-})
-    
-  
+module.exports={
+    getEmployees,
+    getEmployeeById,
+    addEmployee,
+    createEmployee,
+    updateEmployee,
+    deleteEmployee
+}
