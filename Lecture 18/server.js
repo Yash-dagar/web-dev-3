@@ -32,4 +32,7 @@ app.listen(PORT, ()=>{
     
 })
 
-app.get("/", (req, res)=>{
+app.use((req,res)=>{ //invalid route middleware
+    res.status(404).json({success: false, message: "Route not found"})
+})
+
