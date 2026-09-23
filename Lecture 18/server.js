@@ -6,6 +6,7 @@ const bodyParser=require("body-parser");
 app.use(bodyParser.json());
 
 
+
 app.get("/age-check/:age", (req, res, next)=> {
     let age =parseInt(req.params.age);
     try {
@@ -39,3 +40,7 @@ app.use((req,res)=>{ //invalid route middleware
     res.status(404).json({success: false, message: "Route not found"})
 })
 
+app.listen(PORT, ()=>{
+    console.log(`Server is running on port ${PORT}`);
+    
+})
