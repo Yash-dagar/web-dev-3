@@ -7,6 +7,7 @@ const fs= require("fs");
 const { error } = require("console");
 const { json } = require("body-parser");
 const { nextTick } = require("process");
+const { json } = require("express");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
