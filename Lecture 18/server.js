@@ -39,3 +39,13 @@ app.listen(PORT, ()=>{
     console.log(`Server is running on port ${PORT}`);
     
 })
+
+app.get("/read-file", (req, res)=>{
+    fs.readFile(path.join(__dirname, "data.txt"), "utf-8", (err, data)=>{
+        if(err){    
+            res.status(500).json({success: false, message: "Error reading file"})
+        } else {
+            res.json({success: true, data: data})
+        }
+    })
+})
