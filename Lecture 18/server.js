@@ -2,7 +2,7 @@ const express=require("express");
 const app=express();
 const PORT=3000;
 const bodyParser=require("body-parser");
-comst path=require("path");
+const path=require("path");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
