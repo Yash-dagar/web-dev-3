@@ -5,6 +5,7 @@ const bodyParser=require("body-parser");
 const path=require("path");
 const fs= require("fs");
 const { error } = require("console");
+const { json } = require("body-parser");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
