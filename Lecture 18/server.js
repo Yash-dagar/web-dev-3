@@ -2,6 +2,10 @@ const express=require("express");
 const app=express();
 const PORT=3000;
 const bodyParser=require("body-parser");
+comst path=require("path");
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.get("/age-check/:age", (req, res, next)=> {
     let age =parseInt(req.params.age);
