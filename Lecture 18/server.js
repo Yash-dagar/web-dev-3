@@ -1,9 +1,6 @@
 const express=require("express");
 const app=express();
 const PORT=3000;
-const path=require("path");
-const fs=require("fs");
-const bodyParser=require("body-parser");
 
 
 app.get("/age-check/:age", (req, res, next)=> {
@@ -27,6 +24,8 @@ app.use((err, req, res, next) =>{
 app.use((req,res)=>{ //invalid route middleware
     res.status(404).json({success: false, message: "Route not found"})
 })
+
+
 
 app.listen(PORT, ()=>{
     console.log(`Server is running on port ${PORT}`);
