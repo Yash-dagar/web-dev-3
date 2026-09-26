@@ -1,24 +1,7 @@
 const express=require("express");
 const app=express();
 const PORT=3000;
-const bodyParser=require("body-parser");
-const path=require("path");
-const fs= require("fs");
-const { error } = require("console");
-const { json } = require("body-parser");
-const { nextTick } = require("process");
-const { json } = require("express");
-const { join } = require("path");
-const { readFile } = require("fs"); 
-const { error } = require("console");
-const { nextTick } = require("process");
-const { json } = require("express");
-const { join } = require("path");
-const { readFile } = require("fs");
-const { error } = require("console");
-const { nextTick } = require("process");
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+
 
 app.get("/age-check/:age", (req, res, next)=> {
     let age =parseInt(req.params.age);
@@ -31,7 +14,6 @@ app.get("/age-check/:age", (req, res, next)=> {
     } catch (error) {
         // res.status(500).json({success: false, message: "Age is less than 18"})
         next(error);
-        
     }
 })
 
@@ -43,19 +25,7 @@ app.use((req,res)=>{ //invalid route middleware
     res.status(404).json({success: false, message: "Route not found"})
 })
 
-
-
 app.listen(PORT, ()=>{
     console.log(`Server is running on port ${PORT}`);
     
-})
-
-app.get("/read-file", (req, res)=>{
-    fs.readFile(path.join(__dirname, "data.txt"), "utf-8", (err, data)=>{
-        if(err){    
-            res.status(500).json({success: false, message: "Error reading file"})
-        } else {
-            res.json({success: true, data: data})
-        }
-    })
 })
