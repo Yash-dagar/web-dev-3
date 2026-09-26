@@ -3,6 +3,7 @@ const app=express();
 const PORT=3000;
 const path=require("path");
 const fs=require("fs");
+const bodyParser=require("body-parser");
 
 
 app.get("/age-check/:age", (req, res, next)=> {
