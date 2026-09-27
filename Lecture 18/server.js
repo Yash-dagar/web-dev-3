@@ -5,6 +5,7 @@ const bodyParser=require("body-parser");
 const cors=require("cors");
 const morgan=require("morgan");
 const helmet=require("helmet");
+const compression=require("compression");
 
 
 app.get("/age-check/:age", (req, res, next)=> {
