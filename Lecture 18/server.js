@@ -52,3 +52,6 @@ app.use(rateLimit({
 app.get("/api", (req, res) => {
     res.send("Welcome to the API");
 })
+app.get("/api/data", (req, res) => {
+    res.send("Here is some data");
+})
