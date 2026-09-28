@@ -16,6 +16,10 @@ app.get("/age-check/:age", (req, res, next)=> {
         next(error);
     }
 })
+app.use((req,res,next)=>{
+    console.log("This is a middleware");
+    next();
+})
 
 app.use((err, req, res, next) =>{
     res.status(500).json({success: false, message: err.message})
