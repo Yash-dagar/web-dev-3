@@ -58,3 +58,6 @@ app.get("/api/data", (req, res) => {
 app.get("/api/info", (req, res) => {
     res.send("Here is some info");
 })
+app.get("/api/stats", (req, res) => {
+    res.send("Here are some stats");
+})
