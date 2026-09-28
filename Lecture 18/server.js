@@ -3,6 +3,7 @@ const app=express();
 const PORT=3000;
 const bodyParser=require("body-parser");
 const cors=require("cors");
+const morgan=require("morgan");
 
 
 app.get("/age-check/:age", (req, res, next)=> {
