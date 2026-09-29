@@ -2,6 +2,7 @@ const express=require("express");
 const app=express();
 const PORT=3000;
 const path=require("path");
+const fs=require("fs");
 
 
 app.get("/age-check/:age", (req, res, next)=> {
@@ -22,6 +23,10 @@ app.use((req,res,next)=>{
     next();
 })
 
+app.use((req,res,next)=>{
+    console.log("This is another middleware");
+    next();
+})
 app.use((err, req, res, next) =>{
     res.status(500).json({success: false, message: err.message})
 })
