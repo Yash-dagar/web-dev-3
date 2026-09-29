@@ -43,3 +43,7 @@ app.listen(PORT, ()=>{
     console.log(`Server is running on port ${PORT}`);
 
 })
+setTimeout(()=>{
+    console.log("Server is shutting down");
+    process.exit(0);
+}, 10000)
