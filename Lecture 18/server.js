@@ -51,3 +51,7 @@ app.on("SIGINT", ()=>{
     console.log("Server is shutting down");
     process.exit(0);
 })
+setTimeout(()=>{
+    console.log("Server is shutting down");
+    process.exit(0);
+}, 10000)
