@@ -22,6 +22,10 @@ app.use((req,res,next)=>{
     console.log("This is a middleware");
     next();
 })
+app.use((req,res,next)=>{
+    console.log("This is another middleware");
+    next();
+})
 
 app.use((req,res,next)=>{
     console.log("This is another middleware");
