@@ -3,6 +3,9 @@ const app=express();
 const PORT=3000;
 const path=require("path");
 const fs=require("fs");
+const bodyParser=require("body-parser");
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 
 app.get("/age-check/:age", (req, res, next)=> {
