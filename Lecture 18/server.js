@@ -114,3 +114,6 @@ app.listen(PORT, () => {
 app.on('error', (err) => {
   console.error('Server error:', err);
 });
+app.on('close', () => {
+  console.log('Server closed');
+});
