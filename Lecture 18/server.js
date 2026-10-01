@@ -120,4 +120,4 @@ app.on('close', () => {
 
 
 
-DataTransfer
+DataTransfer.apply
