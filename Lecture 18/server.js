@@ -117,7 +117,10 @@ app.on('error', (err) => {
 app.on('close', () => {
   console.log('Server closed');
 });
-
-
-
-DataTransfer.apply
+server.on('SIGINT', () => {
+  console.log('Gracefully shutting down...');
+  server.close(() => {
+    console.log('Server closed');
+    process.exit(0);
+  });
+}       
