@@ -8,6 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const HOST = process.env.HOST || 'localhost';
 const BASE_URL = process.env.BASE_URL || `http://${HOST}:${PORT}`;
+const API_URL = process.env.API_URL || `${BASE_URL}/api`;
 // ==========================================
 // 1. MIDDLEWARE
 // ==========================================
