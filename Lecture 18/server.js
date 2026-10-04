@@ -6,7 +6,7 @@ require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-
+const HOST = process.env.HOST || 'localhost';
 // ==========================================
 // 1. MIDDLEWARE
 // ==========================================
@@ -81,46 +81,3 @@ app.delete('/api/items/:id', (req, res) => {
   items = items.filter((item) => item.id !== id);
   res.status(200).json({ success: true, message: `Item ${id} deleted` });
 });
-
-// ==========================================
-// 4. FRONTEND FALLBACK (SPA Support)
-// ==========================================
-
-// Catch-all route to serve index.html for unrecognized GET routes
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-// ==========================================
-// 5. ERROR HANDLING MIDDLEWARE
-// ==========================================
-
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({
-    success: false,
-    message: 'Internal Server Error',
-    error: process.env.NODE_ENV === 'development' ? err.message : {}
-  });
-});
-
-// ==========================================
-// 6. START SERVER
-// ==========================================
-
-app.listen(PORT, () => {
-  console.log(`🚀 Server listening on http://localhost:${PORT}`);
-});
-app.on('error', (err) => {
-  console.error('Server error:', err);
-});
-app.on('close', () => {
-  console.log('Server closed');
-});
-server.on('SIGINT', () => {
-  console.log('Gracefully shutting down...');
-  server.close(() => {
-    console.log('Server closed');
-    process.exit(0);
-  });
-}       
