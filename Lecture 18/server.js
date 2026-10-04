@@ -7,6 +7,7 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 const HOST = process.env.HOST || 'localhost';
+const BASE_URL = process.env.BASE_URL || `http://${HOST}:${PORT}`;
 // ==========================================
 // 1. MIDDLEWARE
 // ==========================================
