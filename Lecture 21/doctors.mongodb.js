@@ -10,4 +10,4 @@ use("Hospitaldb");
 //     salary:200000,
 //     department:"Cardiology",
 // })
-h
+ use("Hospitaldb");

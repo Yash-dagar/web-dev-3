@@ -83,3 +83,4 @@ app.delete('/api/items/:id', (req, res) => {
   items = items.filter((item) => item.id !== id);
   res.status(200).json({ success: true, message: `Item ${id} deleted` });
 });
+
