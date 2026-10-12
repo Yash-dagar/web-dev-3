@@ -11,4 +11,9 @@ use("Hospitaldb");
 //     department:"Cardiology",
 // })
  use("Hospitaldb");
- use("js");
+const doctors = db.Doctors.find();
+doctors.forEach(doctor => {
+    print(`Name: ${doctor.name}`);
+    print(`Specialization: ${doctor.specialization}`);
+    print(`Experience: ${doctor.experience} years`);     
+
