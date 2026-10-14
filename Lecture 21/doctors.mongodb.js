@@ -19,4 +19,4 @@ doctors.forEach(doctor => {
     print(`Fees: $${doctor.fees}`);
     print(`Salary: $${doctor.salary}`);
     print(`Department: ${doctor.department}`);});
-
+    print("--------------------------------------------------");    
