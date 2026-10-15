@@ -20,3 +20,4 @@ doctors.forEach(doctor => {
     print(`Salary: $${doctor.salary}`);
     print(`Department: ${doctor.department}`);});
     print("--------------------------------------------------");    
+    print("Total number of doctors: " + doctors.count());
