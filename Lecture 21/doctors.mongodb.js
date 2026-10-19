@@ -23,3 +23,4 @@ doctors.forEach(doctor => {
     print("Total number of doctors: " + doctors.count());
     const totalSalary = doctors.reduce((acc, doctor) => acc + doctor.salary, 0);
     print("Total salary of all doctors: $" + totalSalary);
+    print("--------------------------------------------------");
