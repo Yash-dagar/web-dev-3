@@ -12,14 +12,3 @@ use("Hospitaldb");
 // })
  use("Hospitaldb");
 const doctors = db.Doctors.find();
-const doctorList = doctors.toArray();
-console.log("List of Doctors:");
-doctorList.forEach(doctor => {
-    print(`Name: ${doctor.name}`);
-    print(`Specialization: ${doctor.specialization}`);
-    print(`Experience: ${doctor.experience} years`);
-    print(`Fees: $${doctor.fees}`);
-    print(`Salary: $${doctor.salary}`);
-    print(`Department: ${doctor.department}`);
-    print("---------------------------");
-}   
