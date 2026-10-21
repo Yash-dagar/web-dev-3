@@ -26,3 +26,4 @@ doctors.forEach(doctor => {
     print("--------------------------------------------------");
     print("Doctors with experience greater than 10 years:");
     const experiencedDoctors = doctors.filter(doctor => doctor.experience > 10);
+    print("--------------------------------------------------");    
