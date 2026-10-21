@@ -24,3 +24,5 @@ doctors.forEach(doctor => {
     const totalSalary = doctors.reduce((acc, doctor) => acc + doctor.salary, 0);
     print("Total salary of all doctors: $" + totalSalary);
     print("--------------------------------------------------");
+    print("Doctors with experience greater than 10 years:");
+    const experiencedDoctors = doctors.filter(doctor => doctor.experience > 10);
