@@ -12,6 +12,7 @@ use("Hospitaldb");
 // })
  use("Hospitaldb");
 const doctors = db.Doctors.find();
+console.log("List of Doctors:");
 doctors.forEach(doctor => {
     print(`Name: ${doctor.name}`);
     print(`Specialization: ${doctor.specialization}`);
