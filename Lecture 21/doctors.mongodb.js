@@ -12,3 +12,4 @@ use("Hospitaldb");
 // })
  use("Hospitaldb");
 const doctors = db.Doctors.find();
+const doctorsArray = doctors.toArray();
