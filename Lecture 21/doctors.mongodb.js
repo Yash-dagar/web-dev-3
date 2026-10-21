@@ -15,16 +15,4 @@ const doctors = db.Doctors.find();
 doctors.forEach(doctor => {
     print(`Name: ${doctor.name}`);
     print(`Specialization: ${doctor.specialization}`);
-    print(`Experience: ${doctor.experience} years`);     
-    print(`Fees: $${doctor.fees}`);
-    print(`Salary: $${doctor.salary}`);
-    print(`Department: ${doctor.department}`);});
-    print("--------------------------------------------------");    
-    print("Total number of doctors: " + doctors.count());
-    const totalSalary = doctors.reduce((acc, doctor) => acc + doctor.salary, 0);
-    print("Total salary of all doctors: $" + totalSalary);
-    print("--------------------------------------------------");
-    print("Doctors with experience greater than 10 years:");
-    const experiencedDoctors = doctors.filter(doctor => doctor.experience > 10);
-    print("--------------------------------------------------");    
-    print("Total number of experienced doctors: " + experiencedDoctors.length); 
+    print(`Experience: ${doctor.experience} years`);
