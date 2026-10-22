@@ -37,8 +37,17 @@ use("Hospitaldb");
 // db.doctors.findOne({name: "Rakesh sharma"})
 
 // UPDATE
-db.Doctors.updateOne(
+// db.Doctors.updateOne(
+//     { name: "Dr. John Smith"
+// }, 
+//     { $set: { salary: 400000 } }
+// );
+
+db.Doctors.updateMany(
     { name: "Dr. John Smith"
 }, 
-    { $set: { salary: 400000 } }
+    { $set: { salary: 400000,
+        department: "Cardiology",
+        experience: 10
+     } }
 );
