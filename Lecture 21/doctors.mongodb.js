@@ -43,11 +43,11 @@ use("Hospitaldb");
 //     { $set: { salary: 400000 } }
 // );
 
-db.Doctors.updateMany(
-    { name: "Dr. John Smith"
-}, 
-    { $set: { salary: 400000,
-        department: "Cardiology",
-        experience: 10
-     } }
-);
+// db.Doctors.updateMany(
+//     { name: "Dr. John Smith"
+// }, 
+//     { $set: { salary: 400000,
+//         department: "Cardiology",
+//         experience: 10
+//      } }
+// );
