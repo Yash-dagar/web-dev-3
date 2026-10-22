@@ -1,15 +1,44 @@
 use("Hospitaldb");
 
-// db.Doctors.find()
+// CREATE 1 insert  2insertOne 3 insertMany
+// db.doctors.insertMany([
+//     {
+//         name: "Dr. Amit",
+//         age: 30,
+//         specialization: "Dermatologist",
+//         salary: 300000
+//     },
+//     {
+//         name: "Dr. Rahul",
+//         age: 35,
+//         specialization: "Cardiologist",
+//         salary: 500000
+//     }
+// ]);
 
-// db.Doctors.insert({
-//     name:"Dr. John Smith",
-//     specialization:"Cardiologist",
-//     experience:15,
-//     fees:1000,
-//     salary:200000,
-//     department:"Cardiology",
-// })
- use("Hospitaldb");
-const doctors = db.Doctors.find();
-const doctorsArray = doctors.toArray();
+// db.doctors.insertOne(
+//     {
+//         name: "Dr. Rahul",
+//         age: 35,
+//         specialization: "Cardiologist",
+//         salary: 500000
+//     }
+// )
+
+// READ Operations 1. find()  2. findOne()
+// db.doctors.find();
+// db.doctors.findOne()
+// db.doctors.findOne({name: "Rakesh Sharma"})
+
+// READ With condition
+// db.doctors.find({
+//      specialization: "Cardiologist"
+// });
+// db.doctors.findOne({name: "Rakesh sharma"})
+
+// UPDATE
+db.Doctors.updateOne(
+    { name: "Dr. John Smith"
+}, 
+    { $set: { salary: 400000 } }
+);
