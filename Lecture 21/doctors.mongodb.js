@@ -1,53 +1,76 @@
+// 1. Switch to the database
 use("Hospitaldb");
 
-// CREATE 1 insert  2insertOne 3 insertMany
-// db.doctors.insertMany([
-//     {
-//         name: "Dr. Amit",
-//         age: 30,
-//         specialization: "Dermatologist",
-//         salary: 300000
-//     },
-//     {
-//         name: "Dr. Rahul",
-//         age: 35,
-//         specialization: "Cardiologist",
-//         salary: 500000
-//     }
-// ]);
+// ==========================================
+// CREATE Operations
+// ==========================================
 
-// db.doctors.insertOne(
-//     {
-//         name: "Dr. Rahul",
-//         age: 35,
-//         specialization: "Cardiologist",
-//         salary: 500000
-//     }
-// )
+// Insert multiple documents
+db.Doctors.insertMany([
+    {
+        name: "Dr. Amit",
+        age: 30,
+        specialization: "Dermatologist",
+        salary: 300000
+    },
+    {
+        name: "Dr. Rahul",
+        age: 35,
+        specialization: "Cardiologist",
+        salary: 500000
+    }
+]);
 
-// READ Operations 1. find()  2. findOne()
-// db.doctors.find();
-// db.doctors.findOne()
-// db.doctors.findOne({name: "Rakesh Sharma"})
+// Insert a single document
+db.Doctors.insertOne({
+    name: "Dr. Rahul",
+    age: 35,
+    specialization: "Cardiologist",
+    salary: 500000
+});
 
-// READ With condition
-// db.doctors.find({
-//      specialization: "Cardiologist"
-// });
-// db.doctors.findOne({name: "Rakesh sharma"})
 
-// UPDATE
-// db.Doctors.updateOne(
-//     { name: "Dr. John Smith"
-// }, 
-//     { $set: { salary: 400000 } }
-// );
+// ==========================================
+// READ Operations (Updated to match your actual data)
+// ==========================================
 
-// db.Doctors.updateMany(
-//     { name: "Dr. John Smith"
-// }, 
-//     { $set: { salary: 400000,
-//         department: "Cardiology",
-//         experience: 10
-//      } }
-// );
+// View all documents
+db.Doctors.find();
+
+// View a single document
+db.Doctors.findOne();
+
+// Find by existing fields and exact case
+db.Doctors.find({ specialization: "Dermatologist" });
+
+db.Doctors.find({ degree: "Engineer" });
+
+
+// ==========================================
+// UPDATE Operations 
+// ==========================================
+
+db.Doctors.updateOne(
+    { name: "Yash" }, 
+    { $set: { salary: 5500000 } }
+);
+
+
+// ==========================================
+// ADVANCED FILTERING & OPERATORS (Fixed to match your fields)
+// ==========================================
+
+// Greater than ($gt) query for age
+db.Doctors.find({
+    age: {
+        $gt: 30
+    }
+});
+
+// Logical OR query using your actual stored fields/cases
+db.Doctors.find({
+    $or: [
+        { degree: "Engineer" },
+        { specialization: "Dermatologist" }
+    ]
+});
