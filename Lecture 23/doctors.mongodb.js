@@ -1,4 +1,4 @@
- use("HospitalDB");
+use("HospitalDB");
 
 // db.doctors.insert([
 //     {
@@ -45,20 +45,20 @@
 
 db.doctors.aggregate([
     {
-        $match: { 
+        $match: {
             department: "cardiology"
         }
-    }
+    },
      {
         $project: {
             name: 1,
             fees: 1,
-            salary:1,
-            experience:1,
+            salary: 1,
+            experience: 1,
             _id: 0
         }
     }
-    ,{
+    , {
         $group: {
             _id: "$department",
             totalSalary: { $sum: "$salary" },
@@ -68,11 +68,12 @@ db.doctors.aggregate([
             totalDoctors: { $sum: 1 }
         }
     }
-    ,{
-        $sort: { 
-            totalSalary: -1 
+    , {
+        $sort: {
+            totalSalary: -1
         }
     }
 
-])
+]
+)
 
