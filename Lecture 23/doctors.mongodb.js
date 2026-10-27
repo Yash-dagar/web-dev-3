@@ -54,7 +54,7 @@ db.doctors.aggregate([
             name: 1,
             fees: 1,
             salary: 1,
-            experience: 1,
+            experience: 2,
             _id: 0
         }
     }
@@ -76,4 +76,3 @@ db.doctors.aggregate([
 
 ]
 )
-XMLDocument
