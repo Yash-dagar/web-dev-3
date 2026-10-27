@@ -54,7 +54,7 @@ db.doctors.aggregate([
             name: 1,
             fees: 1,
             salary: 1,
-            experience: 2,
+            experience: 1,
             _id: 0
         }
     }
