@@ -75,5 +75,4 @@ db.doctors.aggregate([
     }
 
 ]
-)
 
