@@ -1,50 +1,82 @@
-javascript
 const express = require('express');
-const app = express();
-const port = 3000;
-
-const Doctor = require('./model/doctor.model');
 const mongoose = require('mongoose');
+const Doctor = require('./doctors.model.js');
+const app = express();
+const PORT = 3000;
 
-// Read: Get all doctors
+
+app.use(express.json())
+//Read Operation
 app.get('/api/doctors', async (req, res) => {
     try {
-        const doctors = await Doctor.find();
+        const doctors = await Doctor.find();    
         res.json(doctors);
-    } catch (err) {
-        res.status(500).json({ message: err.message });
+    } catch (error) {
+        res.status(500).json({ success: false, message: error.message });
     }
 });
 
-// Get doctor by ID
-app.get('/doctor/:id', async (req, res) => {
+///get doctors by id 
+app.get('/api/doctors/:id', async (req, res) => {
     const id = req.params.id;
-
     try {
         const doctor = await Doctor.findById(id);
-
         if (!doctor) {
-            return res.status(404).json({
-                message: 'Doctor not found'
-            });
+            return res.status(404).json({ success: false, message: 'Doctor not found' });
         }
-
         res.json(doctor);
-    } catch (err) {
-        res.status(500).json({ message: err.message });
+    } catch (error) {
+        res.status(500).json({ success: false, message: error.message });
+    }
+})
+
+////Create operation
+app.post("/api/doctors", async (req, res) => {
+    console.log(req.body)
+    try {
+        const doctor = await Doctor.create(req.body);
+        res.status(201).json(doctor);
+    } catch (error) {
+        res.status(500).json({ success: false, message: error.message });
     }
 });
 
-// Connect to MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/hospitalDB')
-    .then(() => {
-        console.log('Connected to MongoDB');
-    })
-    .catch((err) => {
-        console.log('Database connection error:', err.message);
-    });
-
-// Start server
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+app.put("/api/doctors/:id", async (req, res) => {
+    const id = req.params.id;
+    try {
+        const doctor = await Doctor.findByIdAndUpdate(id, req.body,{new:true});
+        if (!doctor) {
+            return res.status(404).json({ success: false, message: 'Doctor not found' });
+        }
+        res.json(doctor);
+    } catch (error) {
+        res.status(500).json({ success: false, message: error.message });
+    }
 });
+
+app.delete("/api/doctors/:id", async (req, res) => {
+    const id = req.params.id;
+    try {
+        const doctor = await Doctor.findByIdAndDelete(id);
+        if (!doctor) {
+            return res.status(404).json({ success: false, message: 'Doctor not found' });
+        }
+        res.json(doctor);
+    } catch (error) {
+        res.status(500).json({ success: false, message: error.message });
+    }
+});
+
+
+
+mongoose.connect("mongodb://localhost:27017/HospitalDB").then(()=>{
+    console.log("Mongoose connected"); 
+}).catch((err)=>{
+    console.log(err);
+})
+
+app.listen(PORT, ()=>{
+    console.log(`Server is running on port ${PORT}`);
+    
+})
+()
