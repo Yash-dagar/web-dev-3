@@ -64,7 +64,7 @@ app.delete("/api/doctors/:id", async (req, res) => {
         res.json(doctor);
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
-    }
+}
 });
 
 
