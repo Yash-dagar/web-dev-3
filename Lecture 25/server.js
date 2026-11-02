@@ -1,23 +1,14 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const Doctor = require('./model/doctors.model.js');
-const app = express();
-const PORT = 3000;
-
-
-app.use(express.json())
-//Read Operation
-app.get('/api/doctors', async (req, res) => {
+const getDoctors = async (req, res) => {
     try {
         const doctors = await Doctor.find();    
         res.json(doctors);
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
     }
-});
+}
 
-///get doctors by id 
-app.get('/api/doctors/:id', async (req, res) => {
+
+const getDoctorsById = async (req, res) => {
     const id = req.params.id;
     try {
         const doctor = await Doctor.findById(id);
@@ -28,10 +19,10 @@ app.get('/api/doctors/:id', async (req, res) => {
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
     }
-})
+}
 
-////Create operation
-app.post("/api/doctors", async (req, res) => {
+
+const createDoctor = async (req, res) => {
     console.log(req.body)
     try {
         const doctor = await Doctor.create(req.body);
@@ -39,9 +30,9 @@ app.post("/api/doctors", async (req, res) => {
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
     }
-});
+}
 
-app.put("/api/doctors/:id", async (req, res) => {
+const updateDoctor = async (req, res) => {
     const id = req.params.id;
     try {
         const doctor = await Doctor.findByIdAndUpdate(id, req.body,{new:true});
@@ -52,9 +43,10 @@ app.put("/api/doctors/:id", async (req, res) => {
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
     }
-});
+}
 
-app.delete("/api/doctors/:id", async (req, res) => {
+
+const deleteDoctor = async (req, res) => {
     const id = req.params.id;
     try {
         const doctor = await Doctor.findByIdAndDelete(id);
@@ -64,18 +56,14 @@ app.delete("/api/doctors/:id", async (req, res) => {
         res.json(doctor);
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
+    }
 }
-});
 
 
-
-mongoose.connect("mongodb://localhost:27017/HospitalDB").then(()=>{
-    console.log("Mongoose connected"); 
-}).catch((err)=>{
-    console.log(err);
-})
-
-app.listen(PORT, ()=>{
-    console.log(`Server is running on port ${PORT}`);
-    
-})
+module.exports = {
+    getDoctors,
+    getDoctorsById,
+    createDoctor,
+    updateDoctor,
+    deleteDoctor
+}
