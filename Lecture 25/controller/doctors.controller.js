@@ -70,3 +70,4 @@ module.exports = {
     deleteDoctor
 };
 const Doctor = require('../model/doctors.model.js');
+const getDoctors = async (req, res) => {    
