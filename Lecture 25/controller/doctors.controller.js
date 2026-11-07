@@ -69,3 +69,4 @@ module.exports = {
     updateDoctor,
     deleteDoctor
 };
+const Doctor = require('../model/doctors.model.js');
