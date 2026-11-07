@@ -70,6 +70,3 @@ module.exports = {
     deleteDoctor
 };
 const Doctor = require('../model/doctors.model.js');
-ProgressEvent
-async
-path: Lecture%2025/controller/doctors.controller.js
