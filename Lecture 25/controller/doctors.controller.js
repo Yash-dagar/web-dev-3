@@ -70,5 +70,3 @@ module.exports = {
     deleteDoctor
 };
 
-const getDoctorsBySpecialization = async (req, res) => {
-    const specialization = req.params.specialization;
