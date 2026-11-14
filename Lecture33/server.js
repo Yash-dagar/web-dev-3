@@ -9,4 +9,4 @@ console.log(salt);
 const hash=bcrypt.hash(password,salt).then((hash)=>{
     console.log(hash);  
 });
-console.log(hash);]
+console.log(hash);[]
