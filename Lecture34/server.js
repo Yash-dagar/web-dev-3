@@ -10,4 +10,3 @@ const generatedToken="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiIxMjM0NTYiL
 
 const result=jwt.verify(generatedToken,"mysecret");
 console.log(result);
-
