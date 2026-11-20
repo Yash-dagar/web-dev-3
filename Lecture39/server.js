@@ -1,11 +1,19 @@
-const WebSocket = require('ws');
+const { log } = require('console');
+const EventEmitter=require('events')
+const emitter=new EventEmitter();
 
-const wsServer = new WebSocket.Server({ port: 3000 });
+const informStudent=(time)=>{
+    log(`Bell rang at ${time}, students should come in the class`)
+}
+// emitter.on("bell-rang", informStudent)
 
-wsServer.on('connection', (socket) => {
-  console.log('Client connected');
+emitter.on("bell-rang", informStudent)
 
-    socket.on('message', (message) => {
-      console.log('Received message:', message);
-    });
-});
+// emitter.on("bell-rang", ()=> {
+//     console.log("Bell rang, teachers can start the class")
+// })
+
+emitter.emit("bell-rang", "10:00 AM")
+emitter.emit("bell-rang", "11:00 AM")
+// emitter.off("bell-rang",informStudent)
+emitter.emit("bell-rang", "12:00 PM")
